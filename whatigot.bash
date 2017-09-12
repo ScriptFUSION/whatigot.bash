@@ -3,7 +3,7 @@
 got() {
     local cmd=$1
 
-    which "$cmd" >/dev/null
+    which "$cmd" &>/dev/null
 }
 
 bind9() {
