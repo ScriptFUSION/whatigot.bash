@@ -76,6 +76,12 @@ varnish() {
         sed 's/.*(varnish-\(.*\)).*/Varnish: \1/;q'
 }
 
+znc() {
+    got znc &&
+        command $_ -v |
+        sed 's/^ZNC \([^ ]*\).*/ZNC: \1/;q'
+}
+
 printf "${header=$(lsb_release -ds)}\n$(sed s/./=/g<<<"$header")\n\n"
 
 bind9
@@ -90,3 +96,4 @@ php
 postfix
 squid
 varnish
+znc

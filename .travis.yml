@@ -1,0 +1,10 @@
+notifications:
+  email: false
+
+language: generic
+
+before_script:
+  - docker build -t ${tag=whatigot} .
+
+script:
+  - docker run --rm $tag
