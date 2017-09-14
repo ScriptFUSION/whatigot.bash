@@ -82,7 +82,7 @@ znc() {
         sed 's/^ZNC \([^ ]*\).*/ZNC: \1/;q'
 }
 
-printf "${header=$(lsb_release -ds)}\n$(sed s/./=/g<<<"$header")\n\n"
+printf "${header=$(lsb_release -d | cut -f2)}\n$(sed s/./=/g<<<"$header")\n\n"
 
 bind9
 composer

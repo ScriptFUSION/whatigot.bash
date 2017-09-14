@@ -11,4 +11,19 @@ before_script:
   - docker build -t ${tag=whatigot} -f "$DIST"/Dockerfile .
 
 script:
-  - docker run --rm $tag
+  - out=$(docker run --rm $tag) &&
+    sed q <<<"$out" | grep -F "$DIST" &&
+    sed '2!d' <<<"$out" | grep -x =\*
+
+  - body=$(sed 1,3d <<<"$out") && echo "$body"
+
+  - |
+    tests=(
+      'MongoDB: \d+\.\d+\.\d+'
+      'NGINX: \d+\.\d+\.\d+'
+    )
+
+    for test in "${tests[@]}"; do
+      grep -Px "$test" <<<"$body"
+      echo $?
+    done
