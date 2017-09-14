@@ -3,7 +3,7 @@
 got() {
     local cmd=$1
 
-    which "$cmd" &>/dev/null
+    type -P "$cmd" >/dev/null
 }
 
 bind9() {
@@ -14,7 +14,7 @@ bind9() {
 
 composer() {
     got composer &&
-        command $_ -V |
+        COMPOSER_ALLOW_SUPERUSER=1 command $_ -V |
         sed 's/.*version \([^ ]*\).*/Composer: \1/'
 }
 

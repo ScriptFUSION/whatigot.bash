@@ -3,8 +3,12 @@ notifications:
 
 language: generic
 
+env:
+  - DIST=CentOS
+  - DIST=Ubuntu
+
 before_script:
-  - docker build -t ${tag=whatigot} .
+  - docker build -t ${tag=whatigot} -f "$DIST"/Dockerfile .
 
 script:
   - docker run --rm $tag
