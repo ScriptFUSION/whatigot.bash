@@ -12,16 +12,22 @@ bind9() {
         sed 's/^VERSION=\(.*\)/Bind9: \1/'
 }
 
+# Source
+#   Composer version 1.5.2 2017-09-11 16:59:25
+# Ubuntu 16.04
+#   Composer version @package_branch_alias_version@ (1.0.0-beta2) 2016-03-27 16:00:34
 composer() {
     got composer &&
         COMPOSER_ALLOW_SUPERUSER=1 command $_ -V |
-        sed 's/.*version \([^ ]*\).*/Composer: \1/'
+        sed 's/.*\([0-9]\+\.[0-9]\+\.[0-9]\+\(-\w\+\)\?\).*/Composer: \1/'
 }
 
+# Ubuntu 16.04
+#   Docker version 1.12.6, build 78d1802
 docker() {
     got docker &&
         command $_ -v |
-        sed 's/.*version \(.*\)/Docker: \1/'
+        sed 's/.*version \([0-9.]*\).*/Docker: \1/'
 }
 
 exiftool() {
@@ -40,10 +46,12 @@ mongo() {
         sed 's/.*version v\(.*\)/MongoDB: \1/;q'
 }
 
+# Ubuntu 16.04
+#   nginx version: nginx/1.10.3 (Ubuntu)
 nginx() {
     got nginx &&
         command $_ -v 2>&1 |
-        sed 's/.*version: nginx\/\(.*\)/NGINX: \1/'
+        sed 's/.*version: nginx\/\([^ ]*\).*/NGINX: \1/'
 }
 
 opendkim() {
@@ -70,10 +78,12 @@ squid() {
         sed 's/.*Version \(.*\)/Squid: \1/;q'
 }
 
+# Ubuntu 16.04
+#   varnishd (varnish-4.1.1 revision 66bb824)
 varnish() {
     got varnishd &&
         $_ -V 2>&1 |
-        sed 's/.*(varnish-\(.*\)).*/Varnish: \1/;q'
+        sed 's/.*(varnish-\([^ ]*\).*/Varnish: \1/;q'
 }
 
 znc() {

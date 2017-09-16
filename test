@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+TESTS=(
+    'Bind9: \d+\.\d+\.\d+\b[^ ]*'
+    'Composer: \d+\.\d+\.\d+(-\w+)?'
+    'Docker: \d+\.\d+\.\d+'
+    'ExifTool: \d+\.\d+'
+    'ImageMagick: \d\.\d\.\d-\d\d?'
+    'MongoDB: \d+\.\d+\.\d+'
+    'NGINX: \d+\.\d+\.\d+'
+    'OpenDKIM: \d+\.\d+\.\d+'
+    'PHP: \d+\.\d+\.\d+\b[^ ]*'
+    'Postfix: \d+\.\d+\.\d+'
+    'Squid: \d+\.\d+\.\d+'
+    'Varnish: \d+\.\d+\.\d+'
+    'ZNC: \d+\.\d+\.\d+\b[^ ]*'
+)
+
+pass=${fail=0}
+
+printf '%s\n\n' "${INPUT=$(cat)}"
+
+time for test in "${TESTS[@]}"; do
+    printf '"%s" ' "$test"
+
+    if match=$(grep -Pxm1 "$test" <<<"$INPUT"); then
+        echo $(tput setaf 2)"✔ Matches \"$match\"."$(tput sgr0)
+        ((++pass))
+    else
+        echo $(tput setaf 1)'✘ No match.'$(tput sgr0)
+        ((++fail))
+    fi
+done
+
+echo -e "\nPassed: $pass Failed: $fail"
+
+((fail == 0))
