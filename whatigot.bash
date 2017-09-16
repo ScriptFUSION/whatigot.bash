@@ -6,10 +6,14 @@ got() {
     type -P "$cmd" >/dev/null
 }
 
-bind9() {
-    got bind9-config &&
-        $_ --version |
-        sed 's/^VERSION=\(.*\)/Bind9: \1/'
+# Ubuntu 16.04
+#   BIND 9.10.3-P4-Ubuntu <id:ebd72b3>
+# Centos 7
+#   BIND 9.9.4-RedHat-9.9.4-51.el7 (Extended Support Version)
+bind() {
+    got named &&
+        $_ -v |
+        sed 's/^BIND \([^ ]*\).*/BIND: \1/'
 }
 
 # Source
@@ -94,7 +98,7 @@ znc() {
 
 printf "${header=$(lsb_release -d | cut -f2)}\n$(sed s/./=/g<<<"$header")\n\n"
 
-bind9
+bind
 composer
 docker
 exiftool
