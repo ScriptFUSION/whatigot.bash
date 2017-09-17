@@ -9,6 +9,7 @@ TESTS=(
     'MongoDB: \d+\.\d+\.\d+'
     'NGINX: \d+\.\d+\.\d+'
     'OpenDKIM: \d+\.\d+\.\d+'
+    'Perl: \d+\.\d+\.\d+'
     'PHP: \d+\.\d+\.\d+\b[^ ]*'
     'Postfix: \d+\.\d+\.\d+'
     'Python: \d+\.\d+\.\d+'

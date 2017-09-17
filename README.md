@@ -59,6 +59,7 @@ When the script runs it will search for the following software and print its ver
  - [MongoDB][MongoDB]
  - [NGINX][NGINX]
  - [OpenDKIM][OpenDKIM]
+ - [Perl][Perl]
  - [PHP][PHP]
  - [Postfix][Postfix]
  - [Python][Python]
@@ -117,6 +118,7 @@ To add support for a new test environment follow these steps.
   [MongoDB]: https://www.mongodb.com
   [NGINX]: http://nginx.org
   [OpenDKIM]: http://opendkim.org
+  [Perl]: https://www.perl.org
   [PHP]: http://php.net
   [Postfix]: http://www.postfix.org
   [Python]: https://www.python.org

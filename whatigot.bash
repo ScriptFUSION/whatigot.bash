@@ -64,6 +64,14 @@ opendkim() {
         sed 's/.*OpenDKIM Filter v\(.*\)/OpenDKIM: \1/;q'
 }
 
+# CentOS 7
+#   This is perl 5, version 16, subversion 3 (v5.16.3) built for x86_64-linux-thread-multi
+perl() {
+    got perl &&
+        command $_ -v |
+        sed '/^This is perl/ {s/.*(v\([^)]*\)).*/Perl: \1/;q};d'
+}
+
 php() {
     got php &&
         command $_ -v |
@@ -114,6 +122,7 @@ imagemagick
 mongo
 nginx
 opendkim
+perl
 php
 postfix
 python
