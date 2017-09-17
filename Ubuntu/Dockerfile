@@ -1,5 +1,4 @@
 FROM blitznote/debootstrap-amd64:16.04
-MAINTAINER Bilge <bilge@scriptfusion.com>
 
 COPY whatigot.bash /
 

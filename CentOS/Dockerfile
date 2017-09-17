@@ -1,5 +1,4 @@
 FROM centos:7
-MAINTAINER Bilge <bilge@scriptfusion.com>
 
 COPY whatigot.bash /
 
