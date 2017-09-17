@@ -11,6 +11,7 @@ TESTS=(
     'OpenDKIM: \d+\.\d+\.\d+'
     'PHP: \d+\.\d+\.\d+\b[^ ]*'
     'Postfix: \d+\.\d+\.\d+'
+    'Python: \d+\.\d+\.\d+'
     'Squid: \d+\.\d+\.\d+'
     'Varnish: \d+\.\d+\.\d+'
     'ZNC: \d+\.\d+\.\d+\b[^ ]*'

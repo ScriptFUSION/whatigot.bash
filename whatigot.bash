@@ -76,6 +76,14 @@ postfix() {
         sed 's/.*= *\(.*\)/Postfix: \1/'
 }
 
+# Ubuntu 16.04
+#   Python 2.7.13
+python() {
+    got python &&
+        command $_ -V 2>&1 |
+        sed 's/ /:&/'
+}
+
 squid() {
     got squid &&
         command $_ -v |
@@ -108,6 +116,7 @@ nginx
 opendkim
 php
 postfix
+python
 squid
 varnish
 znc
