@@ -3,7 +3,7 @@ whatigot.bash
 
 [![Build status][Build image]][Build]
 
-A Bash script that prints a list of installed software and their versions. Provides an overview of the major system software installed, such as services and programming languages, and its corresponding version. Useful for exploring new systems or comparing software installations between boxes.
+A Bash script that prints a list of installed software and their versions. The system is probed to find the major system software installed, such as services and programming languages, and their corresponding versions. Useful for exploring new systems or comparing software installations between boxes.
 
 The goal of *whatigot* is to only list intentionally installed software. This is quite different from the output one might get from a package manager, which typically lists every package, many of which are just dependencies of the software we really care about. For this reason we do not list libraries or members of the GNU Coreutils.
 
