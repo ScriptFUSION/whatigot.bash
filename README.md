@@ -82,6 +82,7 @@ Testing
 
 [Pull requests][PRs] are automatically tested by [Travis][Build], for each distribution, in parallel. The following distributions are currently tested.
 
+* [Arch Linux][ArchLinux]
 * [CentOS 7][CentOS]
 * [Ubuntu 16.04][Ubuntu]
 
@@ -98,7 +99,8 @@ To add support for a new test environment follow these steps.
 1. Create a directory named after the distribution.
 2. Add a `Dockerfile` to the distribution directory that installs all the [supported software](#supported-software).
 3. Add the distribution directory name with a `DIST` key to the `env` matrix in `.travis.yml`.
-4. Create a [pull request][PRs]!
+4. Update the [readme](#testing).
+5. Create a [pull request][PRs]!
 
 
   [Test script]: https://github.com/ScriptFUSION/whatigot.bash/blob/master/test
@@ -107,6 +109,7 @@ To add support for a new test environment follow these steps.
   [Build]: http://travis-ci.org/ScriptFUSION/whatigot.bash
   [Build image]: https://travis-ci.org/ScriptFUSION/whatigot.bash.svg?branch=master "Build status"
 
+  [ArchLinux]: https://www.archlinux.org
   [CentOS]: https://www.centos.org
   [Ubuntu]: https://www.ubuntu.com
 

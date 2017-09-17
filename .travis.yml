@@ -4,6 +4,7 @@ notifications:
 language: generic
 
 env:
+  - DIST='Arch Linux'
   - DIST=CentOS
   - DIST=Ubuntu
 
